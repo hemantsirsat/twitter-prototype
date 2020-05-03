@@ -4,7 +4,7 @@ import os
 
 class Database:
 
-    URI = 'mongodb://<twitter>:<twitter123>@ds163053.mlab.com:63053/heroku_cp20r344'
+    URI = os.environ.get('MONGOLAB_URI')
     DATABASE = pymongo.MongoClient(URI).get_database()
 
     def insert(collection:str,data:Dict):
