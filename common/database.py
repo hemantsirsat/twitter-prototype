@@ -1,9 +1,10 @@
 from typing import Dict
 import pymongo
+import os
 
 class Database:
 
-    URI = 'mongodb://127.0.0.1:27017/twitter'
+    URI = os.environ.get('MONGODB_URI')
     DATABASE = pymongo.MongoClient(URI).get_database()
 
     def insert(collection:str,data:Dict):
