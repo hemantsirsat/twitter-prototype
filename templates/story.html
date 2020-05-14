@@ -40,6 +40,7 @@
                     </div>
                     <div class="date">
                         <small>{{post.date}}</small>
+                        <button id="favourite-button" onclick="favourite()" class='btn btn-success btn-sm' value='{{post._id}}'>Add to Favourite</button>
                         <hr>
                     </div>
                     {% endfor %}
@@ -56,3 +57,10 @@
         </div>
     </div>
 {% endblock %}
+    <script>
+        var click_button = document.getElementById('favourite-button');
+        function favourite(){
+            var text = click_button.innerHTML;
+            console.log(text);
+        }
+    </script>

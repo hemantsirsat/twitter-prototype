@@ -40,3 +40,9 @@
     margin-top: 10px;
     padding: 10px;
 }
+
+#favourite-button{
+    position: relative;
+    right: 0;
+    bottom: 0;
+}
