@@ -3,6 +3,7 @@ from models.signup import Signup
 from models.post import Post
 from models.active import Active
 from common.database import Database
+import sys
 
 app = Flask(__name__)
 
@@ -39,11 +40,13 @@ def login():
 @app.route('/stories',methods=["POST",'GET'])
 def stories():
     username = session['username']
+    print('hello1',file=sys.stderr)
     if request.method == 'POST':
         content = request.form['message']
         post = Post(username=username,content=content)
         Database.insert('feed',post.json())
         return redirect(url_for('stories'))
+    
     return render_template('story.html',username=username,posts = Database.find(collection='feed',data={}),onlines = Database.find(collection='active',data={}))
 
 @app.route('/logout')
